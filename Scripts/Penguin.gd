@@ -11,6 +11,22 @@ const vetorNormal = Vector2(0, -1)
 
 func _process(delta):
 	
+	if Input.is_action_just_pressed("botaoRapido1"):
+		animacao = "PistolAnimation"
+		$PistolAnimation.visible = true
+		$DualPistolAnimation.visible = false
+		$SmgAnimation.visible = false
+	elif Input.is_action_just_pressed("botaoRapido2"):
+		animacao = "DualPistolAnimation"
+		$DualPistolAnimation.visible = true
+		$PistolAnimation.visible = false
+		$SmgAnimation.visible = false
+	elif Input.is_action_just_pressed("botaoRapido3"):
+		animacao = "SmgAnimation"
+		$SmgAnimation.visible = true
+		$DualPistolAnimation.visible = false
+		$PistolAnimation.visible = false
+	
 	_move()
 	
 func _move():
@@ -69,4 +85,10 @@ func _move():
 
 
 func _on_PistolAnimation_animation_finished():
+	get_node(animacao).play("Idle")
+
+func _on_DualPistolAnimation_animation_finished():
+	get_node(animacao).play("Idle")
+
+func _on_RifleAnimation_animation_finished():
 	get_node(animacao).play("Idle")
