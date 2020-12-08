@@ -1,8 +1,58 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Penguin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.8863, 30.1023 )
 
 [node name="Main" type="Node"]
 
 [node name="Penguin" parent="." instance=ExtResource( 1 )]
-position = Vector2( 477.808, 274.62 )
+position = Vector2( 52.0716, 398.298 )
+
+[node name="Camera2D" type="Camera2D" parent="Penguin"]
+position = Vector2( 1.38232, 4.3884 )
+current = true
+zoom = Vector2( 0.8, 0.8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 167.678, 573.198 )
+scale = Vector2( 5, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 474.047, 489.065 )
+rotation = -0.534443
+scale = Vector2( 5, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 769.303, 408.108 )
+rotation = -0.0158347
+scale = Vector2( 5, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D3"]
+texture = ExtResource( 2 )
